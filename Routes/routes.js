@@ -30,4 +30,13 @@ route.post('/menu', async (req, res) => {
     }
 });
 
+route.get('/menu',async(req,res)=>{
+    try{
+    const menu = await Menu.find();
+    return res.status(201).send(menu)}
+    catch(e){
+      return res.status(500).send(e.message)
+    }
+})
+
 module.exports = route;
